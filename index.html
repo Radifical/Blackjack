@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src = script.js></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b2e4a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        h1 {
+            margin-top: 0;
+        }
+        
+        p {
+            margin: 0.5em 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        #dealer-hand,
+        #player-hand {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1em;
+        }
+        
+        #dealer-hand img,
+        #player-hand img {
+            width: 80px;
+            height: 120px;
+            object-fit: contain;
+        }
+        
+        #dealer-points,
+        #player-points {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        button {
+            padding: 1em;
+            font-size: 1.2em;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        button:hover {
+            background-color: #357a38;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blackjack</h1>
+    <div id="message"></div>
+
+    <p>Dealer's hand</p>
+    <p id="dealer-points"></p>
+    <div id="dealer-hand"></div>
+
+    <p>Player's hand</p>
+    <p id="player-points"></p>
+    <div id="player-hand"></div>
+
+    <button onclick="hit()">Hit</button>
+    <button onclick="stand()">Stand</button>
+
+
+    
+
+
+    
+</body>
+</html>
