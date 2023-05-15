@@ -166,11 +166,11 @@ var dealerHand =
    pPoints.innerHTML = getHandValue(playerHand);
     if (getHandValue(playerHand) > 21) {
       showMessage("You busted!");
-      setTimeout(function() { location.reload(); }, 1000);
+      setTimeout(function() { location.reload(); }, 2000);
     }
     else if (getHandValue(playerHand) === 21) {
       showMessage("Blackjack!");
-      setTimeout(function() { location.reload(); }, 1000);
+      setTimeout(function() { location.reload(); }, 2000);
     }
     else {
       //do nothing
@@ -179,22 +179,25 @@ var dealerHand =
   }
   
   function stand() {
+    var newCard = generateHand(1);
+    
     // ...
-    if (getHandValue(dealerHand) > 21) {
-      showMessage("Dealer busted!");
-      setTimeout(function() { location.reload(); }, 1000);
+    while (getHandValue(dealerHand) < 17) {
+      dealerHand.push(newCard[0]);
+      showHand(dealerHand, dealerContainer, false);
+      dPoints.innerHTML = getHandValue(dealerHand);
     }
-    else if (getHandValue(dealerHand) > getHandValue(playerHand)) {
+    if (getHandValue(dealerHand) > getHandValue(playerHand) && getHandValue(dealerHand) < 21) {
       showMessage("Dealer wins!");
-      setTimeout(function() { location.reload(); }, 1000);
+      setTimeout(function() { location.reload(); }, 2000);
     }
     else if (getHandValue(dealerHand) === getHandValue(playerHand)) {
       showMessage("It's a tie!");
-      setTimeout(function() { location.reload(); }, 1000);
+      setTimeout(function() { location.reload(); }, 2000);
     }
     else {
       showMessage("You win!");
-      setTimeout(function() { location.reload(); }, 1000);
+      setTimeout(function() { location.reload(); }, 2000);
     }
   }
   
