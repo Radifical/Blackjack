@@ -1,3 +1,4 @@
+//main 
 //didnt know any other way to this
 
 var cardImages = {
