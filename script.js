@@ -1,3 +1,4 @@
+//main 
 //didnt know any other way to this
 
 var cardImages = {
@@ -139,6 +140,8 @@ var dealerHand =
       container.appendChild(imageElement);
     }
   }
+
+//debug
 
   console.log("The value of the Player hand is " + getHandValue(playerHand));
  
