@@ -141,6 +141,8 @@ var dealerHand =
     }
   }
 
+//debug
+
   console.log("The value of the Player hand is " + getHandValue(playerHand));
  
   console.log("The value of the Dealer hand is " + getHandValue(dealerHand));
