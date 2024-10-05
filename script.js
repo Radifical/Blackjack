@@ -80,9 +80,13 @@ var dealerHand =
     generateHand(2)
   ;
   
-  function getHandValue(hand) {
+  function getHandValue(hand, hidden) {
     var total = 0;
     var numAces = 0;
+
+ 
+    var secondcard = hand[1];
+    var secondValue = getCardValue(secondcard.rank, secondcard.suit);
   
     // Loop through each card in the hand
     for (var i = 0; i < hand.length; i++) {
@@ -105,6 +109,9 @@ var dealerHand =
       }
     }
   
+    if(hidden){
+      return total - secondValue;
+    }
     return total;
   }
   
@@ -141,6 +148,36 @@ var dealerHand =
     }
   }
 
+  
+  function showDealerHand(hand, container) {
+    container.innerHTML = ""; // clear existing cards in container
+    for (var i = 0; i < hand.length; i++) {
+
+      var card = hand[i];
+      var cardCode = card.rank + card.suit;
+      var imageElement = document.createElement("img");
+      
+      if(i == 1)
+      {
+        var imagePath = "PNG-cards-1.3/hidden.png";
+        console.log("showing dealer hand")
+      }
+
+      else{
+      
+      var imagePath = "PNG-cards-1.3/" + cardImages[cardCode];
+      }
+      imageElement.style.width = "50px"; // set image width
+      imageElement.style.height = "70px"; // set image height
+      imageElement.src = imagePath;
+      container.appendChild(imageElement);
+      
+    }
+  }
+
+
+
+
 //debug
 
   console.log("The value of the Player hand is " + getHandValue(playerHand));
@@ -151,7 +188,7 @@ var dealerHand =
   var pPoints = document.getElementById("player-points");
   var dPoints = document.getElementById("dealer-points");
   pPoints.innerHTML = getHandValue(playerHand);
-  dPoints.innerHTML = getHandValue(dealerHand);
+  dPoints.innerHTML = getHandValue(dealerHand,true);
 
   //show cards for player 
   var playerContainer = document.getElementById("player-hand");
@@ -159,7 +196,7 @@ var dealerHand =
   
   //show cards for dealer
   var dealerContainer = document.getElementById("dealer-hand");
-  showHand(dealerHand, dealerContainer, false);
+  showDealerHand(dealerHand, dealerContainer, false);
   
 
   function hit() {
