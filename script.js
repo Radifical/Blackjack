@@ -215,6 +215,7 @@ var dealerHand =
     else {
       //do nothing
       console.log("The value of the Player hand is " + getHandValue(playerHand));
+      console.log("haha")
     }
   }
   
