@@ -1,5 +1,5 @@
 //main 
-//didnt know any other way to this
+//10/1/2021 - coded
 
 var cardImages = {
     "2♠": "2_of_spades.png",
